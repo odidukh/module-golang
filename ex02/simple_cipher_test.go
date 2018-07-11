@@ -105,7 +105,7 @@ var NSATests = []cipherTest{
 		"thomasjeffersondesignedasubstitutioncipher"},
 	{"the quick brown fox jumps over the lazy dog",
 		"qebnrfzhyoltkclugrjmplsboqebixwvald",
-		"thequickbrownfoxjumpsoverthelazydog"},
+		"thequickbrownfoxjumpsoverthelaydog"},
 }
 
 func TestShift(t *testing.T) {
