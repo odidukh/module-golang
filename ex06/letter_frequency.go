@@ -1,7 +1,7 @@
 package letter
 
 func Frequency(str string) map[rune]int {
-	slice := make([]rune, str)
+	slice := []rune(str)
 	var m map[rune]int
 
 	for _, l := range slice {
@@ -16,15 +16,14 @@ func Frequency(str string) map[rune]int {
 
 func ConcurrentFrequency(array []string) {
 	c := make(chan result)
-	c <- Frequency(array[0])
-	c <- Frequency(array[1])
-	c <- Frequency(array[2])
+	go func() { c <- Frequency(array[0]) }()
+	go func() { c <- Frequency(array[1]) }()
+	go func() { c <- Frequency(array[2]) }()
 
 	select {
 	case result := <-c:
 		results = append(results, result)
-	case <- .....:
 		return
 	}
-
+	return
 }
